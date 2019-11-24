@@ -29,10 +29,12 @@ public class Posts {
     private String author;
 
     //지금 이건 protected니까.
-    @Builder //Builder로 Class를 생성하고, Public Method로 값을 채워넣는 방식을 사용할 것.
+    //Builder로 Class를 생성하고, Public Method로 값을 채워넣는 방식을 사용할 것.
+    @Builder
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
     }
+
 }
