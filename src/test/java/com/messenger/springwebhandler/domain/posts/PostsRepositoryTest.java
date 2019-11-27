@@ -9,7 +9,6 @@ import static org.junit.Assert.assertThat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import sun.security.x509.OtherName;
 
 import java.util.List;
 
@@ -27,14 +26,17 @@ public class PostsRepositoryTest {
 
     @Test
     public void 게시글저장_불러오기() {
+        //given
         postsRepository.save(Posts.builder()
         .title("테스트 게시글")
         .content("테스트 본문")
         .author("blah@hanmir.com")
         .build());
 
+        //when
         List<Posts> postsList = postsRepository.findAll();
 
+        //then
         //posts.getTitle()같은게 동작하지 않는 이유는 builder가 처리가 안되는 탓.
         //builder annotation으로 @Getter 생성하도록 해놨는데...
         Posts posts = postsList.get(0);
