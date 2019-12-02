@@ -1,5 +1,6 @@
 package com.messenger.springwebhandler.domain.posts;
 
+import com.messenger.springwebhandler.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Entity//Table과 링크될 것임을 나타냄(SalesManager.java -> sales_manager table 이런 식으로 매핑됨)
 //Table과 매칭될 클래스로, 이걸 Entity Class라고 부른다.
 //JPA로 DB 데이터에 작업할 경우 Query 전송 보다는 Entity Class를 수정한다.
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue //PK로 생성됨을
     private Long id;
